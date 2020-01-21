@@ -1,0 +1,16 @@
+#header {
+    text-align: center;
+    }
+.times {
+        background-color: lightblue;
+        text-align:center;
+        border-bottom: dotted;
+        font-size: 24px;
+    }
+.save-btn{
+        background-color:lightblue
+    }
+.row{
+        /* padding:20px; */
+        height:60px;
+    }
