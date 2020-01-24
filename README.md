@@ -1,1 +1,2 @@
 # Daily-Calendar
+This daily calendar is for a work day. You can add notes in the input area and click save to save the text to the local storage which is called on refresh. Even if you leave or refresh the text will stay. It is also color coded so that grey is in the past, red is current, green is in the future. 

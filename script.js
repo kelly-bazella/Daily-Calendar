@@ -1,4 +1,3 @@
-// variables
 var displayDate = document.getElementById("date-time");
 var display = moment().format("LLL");
 var times = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm"];
@@ -6,11 +5,7 @@ var btnNumber = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 var toDo = document.querySelectorAll(".enter-task");
 var userInputArr = Array(10);
 
-
-
 var rightNow = moment().get("hour");
-console.log(rightNow);
-
 
 displayDate.append(display);
 
@@ -18,22 +13,23 @@ $().ready(function () {
 
 
     function renderColor() {
-        for (var t = 0; t < times.length; t++) {
 
-            if (rightNow < (btnNumber[t])) {
+        for (var t = 0; t < times.length; t++) {
+            var militaryHour = btnNumber[t];
+            if (rightNow < militaryHour) {
                 //grey
-                $("#input-"+times[t]).css("background-color", "#BABABA")
+                $("#input-" + times[t]).css("background-color", "#BABABA")
             }
-            else if (rightNow === btnNumber[t]) {
+            else if (rightNow === militaryHour) {
                 //red
-                $("#input-"+times[t]).css("background-color", "#F95858")
+                $("#input-" + times[t]).css("background-color", "#F95858")
             } else {
                 //green
                 $("input").css("background-color", "#80ED67")
             }
         }
     }
- 
+
     if (localStorage.getItem("user-input") !== null) {
         userInputArr = JSON.parse(localStorage.getItem("user-input"))
     }
@@ -49,7 +45,7 @@ $().ready(function () {
         saveButtons.attr("value", btnNumber[i]);
         inputArea.attr("index", btnNumber[i]);
         inputArea.attr("value", userInputArr[i]);
-        inputArea.attr("id", "input-"+times[i]);
+        inputArea.attr("id", "input-" + times[i]);
         time.attr("data-area", times[i]);
         time.text(times[i]);
         saveButtons.text("Save")
@@ -57,7 +53,7 @@ $().ready(function () {
         newRow.append(inputArea);
         newRow.append(saveButtons);
         $(".container").append(newRow);
-       
+
     }
     renderColor();
 })
@@ -78,6 +74,6 @@ $(document).on("click", ".save-button", function (event) {
         alert("Got it!")
         userInputArr[event.target.value] = toDoText
         storeUserInput();
-        
+
     }
 })
