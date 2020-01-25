@@ -17,15 +17,12 @@ $().ready(function () {
         for (var t = 0; t < times.length; t++) {
             var militaryHour = btnNumber[t];
             if (rightNow < militaryHour) {
-                //grey
-                $("#input-" + times[t]).css("background-color", "#BABABA")
+                $("#input-" + times[t]).css("background-color",  "#80ED67")
             }
             else if (rightNow === militaryHour) {
-                //red
                 $("#input-" + times[t]).css("background-color", "#F95858")
             } else {
-                //green
-                $("input").css("background-color", "#80ED67")
+                $("input").css("background-color","#BABABA")
             }
         }
     }
