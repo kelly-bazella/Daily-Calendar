@@ -4,7 +4,7 @@ var times = ["9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "
 var btnNumber = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 var toDo = document.querySelectorAll(".enter-task");
 var userInputArr = Array(10);
-
+console.log(userInputArr)
 var rightNow = moment().get("hour");
 
 displayDate.append(display);
@@ -39,8 +39,8 @@ $().ready(function () {
         newRow.addClass("row");
         time.addClass("col-md-2 times");
         saveButtons.addClass("col-md-2 save-button");
-        saveButtons.attr("value", btnNumber[i]);
-        inputArea.attr("index", btnNumber[i]);
+        saveButtons.attr("value", i);
+        inputArea.attr("index", i);
         inputArea.attr("value", userInputArr[i]);
         inputArea.attr("id", "input-" + times[i]);
         time.attr("data-area", times[i]);
@@ -65,12 +65,7 @@ $(document).on("click", ".save-button", function (event) {
     event.preventDefault();
     var toDoText = $(`[index="${event.target.value}"]`).val();
     console.log(toDoText)
-    if (toDoText === "") {
-        return;
-    } else {
-        alert("Got it!")
+
         userInputArr[event.target.value] = toDoText
         storeUserInput();
-
-    }
 })
